@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Pedro Díaz" />
+    <meta
+      name="description"
+      content="Proyecto 1 - Máster en Desarrollo Full Stack"
+    />
+    <meta
+      name="keywords"
+      content="Informática, Tecnología, Ordenadores, Gaming"
+    />
+    <link rel="icon" href="./assets/favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+    <title>
+      Última Informática - Tienda de informática y tecnología en Canarias
+    </title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <button><img src="./assets/menuH.svg" alt="menu" /></button>
+        <a id="logo" href="https://ultimainformatica.com/" rel="noopener"
+          ><img src="./assets/logo.svg" alt="logo"
+        /></a>
+        <form
+          action="https://ultimainformatica.com/modules/iqitsearch/searchiqit"
+          method="get"
+          rel="noopener"
+        >
+          <input
+            type="text"
+            name="s"
+            value=""
+            placeholder="Buscar en Última Informática"
+            autocomplete="off"
+          />
+          <button>
+            <img src="./assets/lupa.svg" alt="buscar" />
+          </button>
+        </form>
+        <a id="empresa" href="https://ultimainformatica.com/ultima-empresas" rel="noopener"
+          ><span>¿Eres una empresa?</span>Registrate aquí</a
+        >
+        <a
+          id="registro"
+          href="https://ultimainformatica.com/iniciar-sesion?back=my-account" rel="noopener"
+          ><img src="./assets/inicioSesion.svg" alt="" /><span>Hola,</span>
+          <p>Iniciar sesión</p></a
+        >
+        <a id="carrito" href=""
+          ><img src="./assets/carrito.svg" alt="Carrito"
+        /></a>
+      </nav>
+      <ul id="zonas">
+        <li>
+          <a href="https://ultimainformatica.com/ordenadores" rel="noopener"
+            ><img src="./assets/ordenadores.svg" alt="Ordenadores Última" />
+            <p>Ordenadores Última</p></a
+          >
+        </li>
+        <li>
+          <a href="https://ultimainformatica.com/monitores/" rel="noopener"
+            ><img src="./assets/monitores.svg" alt="Monitores" />
+            <p>Monitores</p></a
+          >
+        </li>
+        <li>
+          <a href="https://ultimainformatica.com/ultima-empresas" rel="noopener"
+            ><img src="./assets/empresas.svg" alt="Última empresas" />
+            <p>Última empresas</p></a
+          >
+        </li>
+        <li>
+          <a href="https://ultimainformatica.com/contacto" rel="noopener"
+            ><img src="./assets/cliente.svg" alt="Atención al cliente" />
+            <p>Atención al cliente</p></a
+          >
+        </li>
+      </ul>
+    </header>
+    <main>
+      <!-- <section id="hero-desktop">
+        <div>
+          <img
+            id="cholas"
+            src="./assets/cholas.png"
+            alt="en cholas y a jugar"
+          />
+          <a href="https://ultimainformatica.com/en-cholas-y-a-jugar" rel="noopener"
+            >Ver ofertas</a
+          >
+        </div>
+        <img
+          id="promocion"
+          src="./assets/promocion.png"
+          alt="ofertas de verano"
+        />
+      </section>
+      <section id="hero-mobile">
+        <img id="cholas" src="./assets/cholas.png" alt="en cholas y a jugar" />
+        <div>
+          <img
+            id="promocion"
+            src="./assets/promocion.png"
+            alt="ofertas de verano"
+          />
+          <a href="https://ultimainformatica.com/en-cholas-y-a-jugar" rel="noopener"
+            >Ver ofertas</a
+          >
+        </div>
+      </section> -->
+      
+      <!-- <section class="secciones" id="secciones-desktop">
+        <a href="https://ultimainformatica.com/ultima-pc-gaming/" rel="noopener"
+          ><img
+            class="seccion"
+            src="./assets/gamingD.jpeg"
+            alt="PC Gaming Última"
+        /></a>
+        <a href="https://ultimainformatica.com/pc-gaming-ultima-pba-cd-tenerife" rel="noopener"
+          ><img
+            class="seccion"
+            src="./assets/tenerifeD.jpeg"
+            alt="PC Oficial CD Tenerife"
+        /></a>
+        <a href="https://ultimainformatica.com/perifericos" rel="noopener"
+          ><img
+            class="seccion"
+            src="./assets/perifericoD.jpeg"
+            alt="Todo en periféricos"
+        /></a>
+        <a
+          href="https://ultimainformatica.com/monitores/#/s/monitores/f/en-oferta:si" rel="noopener"
+          ><img
+            class="seccion"
+            src="./assets/monitorD.jpeg"
+            alt="Los mejores Monitores"
+        /></a>
+      </section>
+      <section class="secciones" id="secciones-mobile">
+        <a href="https://ultimainformatica.com/ultima-pc-gaming/" rel="noopener"
+          ><img
+            class="seccion"
+            src="./assets/gamingM.jpeg"
+            alt="PC Gaming Última"
+        /></a>
+        <a href="https://ultimainformatica.com/pc-gaming-ultima-pba-cd-tenerife" rel="noopener"
+          ><img
+            class="seccion"
+            src="./assets/tenerifeM.jpeg"
+            alt="PC Oficial CD Tenerife"
+        /></a>
+        <a href="https://ultimainformatica.com/perifericos" rel="noopener"
+          ><img
+            class="seccion"
+            src="./assets/perifericoM.jpeg"
+            alt="Todo en periféricos"
+        /></a>
+        <a
+          href="https://ultimainformatica.com/monitores/#/s/monitores/f/en-oferta:si" rel="noopener"
+          ><img
+            class="seccion"
+            src="./assets/monitorM.jpeg"
+            alt="Los mejores Monitores"
+        /></a>
+      </section> -->
+      <h2>Nuestros Descuentos</h2>
+      <!-- <section id="descuentos">
+        <article class="producto">
+          <a
+            href="https://ultimainformatica.com/pc-ultima-office-lite-i3-13100f-8gb-gt-1030-2gb-256gb.html" rel="noopener"
+          >
+            <div>
+              <div class="discount"><p>-8%</p></div>
+              <div class="Sent"><p>Envío gratis</p></div>
+            </div>
+            <img
+              src="./assets/articulo1.webp"
+              alt="PC Última Office Lite | i3 13100F/ 8GB/ GT 1030 2gb/ 256GB"
+            />
+            <p class="Nproducto">
+              PC Última Office Lite | i3 13100F/ 8GB/ GT 1030 2gb/ 256GB
+            </p>
+            <p class="oldPrice">599,99€</p>
+            <p class="newPrice">551,99€</p>
+          </a>
+        </article>
+        <article class="producto">
+          <a href="https://ultimainformatica.com/pc-gaming-ultima-evo-s3.html" rel="noopener">
+            <div>
+              <div class="discount"><p>-12%</p></div>
+              <div class="Sent"><p>Envío gratis</p></div>
+            </div>
+            <img
+              src="./assets/articulo2.webp"
+              alt="PC Gaming Última Evo | Ryzen 5 5600X / RTX 4060 TI 8GB / 16GB RAM
+            / 1TB M.2 / Windows 11 Pro (S3)"
+            />
+            <p class="Nproducto">
+              PC Gaming Última Evo | Ryzen 5 5600X / RTX 4060 TI 8GB / 16GB RAM
+              / 1TB M.2 / Windows 11 Pro (S3)
+            </p>
+            <p class="oldPrice">1.400,00€</p>
+            <p class="newPrice">1.232,00€</p>
+          </a>
+        </article>
+        <article class="producto">
+          <a
+            href="https://ultimainformatica.com/pc-gaming-ultima-viridia-s2.html" rel="noopener"
+          >
+            <div>
+              <div class="discount"><p>-8%</p></div>
+              <div class="Sent"><p>Envío gratis</p></div>
+            </div>
+            <img
+              src="./assets/articulo3.webp"
+              alt="PC Gaming Última Viridia | Intel Core i7 13700F / RTX 4060 TI 8GB
+            / 32GB DDR5 / 1TB M.2 / Windows 11 Pro (S2)"
+            />
+            <p class="Nproducto">
+              PC Gaming Última Viridia | Intel Core i7 13700F / RTX 4060 TI 8GB
+              / 32GB DDR5 / 1TB M.2 / Windows 11 Pro (S2)
+            </p>
+            <p class="oldPrice">1.710,00€</p>
+            <p class="newPrice">1.573,20€</p>
+          </a>
+        </article>
+        <article class="producto">
+          <a href="https://ultimainformatica.com/pc-gaming-ultima-mega-s1.html" rel="noopener">
+            <div>
+              <div class="discount"><p>-12%</p></div>
+              <div class="Sent"><p>Envío gratis</p></div>
+            </div>
+            <img
+              src="./assets/articulo4.webp"
+              alt="PC Gaming Última Mega | Intel Core i5 12400F / RTX 4070 12GB /
+            16GB RAM / 1TB M.2 / Windows 11 Pro (S1)"
+            />
+            <p class="Nproducto">
+              PC Gaming Última Mega | Intel Core i5 12400F / RTX 4070 12GB /
+              16GB RAM / 1TB M.2 / Windows 11 Pro (S1)
+            </p>
+            <p class="oldPrice">1.836,00€</p>
+            <p class="newPrice">1.615,68€</p>
+          </a>
+        </article>
+        <article class="producto">
+          <a
+            href="https://ultimainformatica.com/pc-gaming-ultima-pba-hyperion.html rel="noopener""
+          >
+            <div>
+              <div class="discount"><p>-8%</p></div>
+              <div class="Sent"><p>Envío gratis</p></div>
+            </div>
+            <img
+              src="./assets/articulo5.webp"
+              alt="PC Gaming Última Hyperion | Intel Core i7 13700KF / RTX 4080 16GB
+            / 32GB DDR4 / 1TB M.2 / Windows 11 Pro"
+            />
+            <p class="Nproducto">
+              PC Gaming Última Hyperion | Intel Core i7 13700KF / RTX 4080 16GB
+              / 32GB DDR4 / 1TB M.2 / Windows 11 Pro
+            </p>
+            <p class="oldPrice">3.650,00€</p>
+            <p class="newPrice">3.542,00€</p>
+          </a>
+        </article>
+        <article class="producto">
+          <a
+            href="https://ultimainformatica.com/pc-gaming-ultima-obsidian.html rel="noopener""
+          >
+            <div>
+              <div class="discount"><p>-8%</p></div>
+              <div class="Sent"><p>Envío gratis</p></div>
+            </div>
+            <img
+              src="./assets/articulo6.jpeg"
+              alt="PC Gaming Última Obsidian | Intel Core i5 13400F / RTX 4070 12GB /
+            32GB DDR5 / 1TB M.2 / 960GB SSD / Windows 11 Pro"
+            />
+            <p class="Nproducto">
+              PC Gaming Última Obsidian | Intel Core i5 13400F / RTX 4070 12GB /
+              32GB DDR5 / 1TB M.2 / 960GB SSD / Windows 11 Pro
+            </p>
+            <p class="oldPrice">2.199,00€</p>
+            <p class="newPrice">2.023,08€</p>
+          </a>
+        </article>
+        <article class="producto">
+          <a href="https://ultimainformatica.com/pc-gaming-ultima-pro-s2.html" rel="noopener">
+            <div>
+              <div class="discount"><p>-18%</p></div>
+              <div class="Sent"><p>Envío gratis</p></div>
+            </div>
+            <img
+              src="./assets/articulo7.webp"
+              alt="PC Gaming Última Pro| Intel Core i5 13400F / RTX 4070 TI 12GB /
+            32GB DDR5 / 2TB M.2 / Windows 11 Pro (S2)"
+            />
+            <p class="Nproducto">
+              PC Gaming Última Pro| Intel Core i5 13400F / RTX 4070 TI 12GB /
+              32GB DDR5 / 2TB M.2 / Windows 11 Pro (S2)
+            </p>
+            <p class="oldPrice">2.534,00€</p>
+            <p class="newPrice">2.077,88€</p>
+          </a>
+        </article>
+        <article class="producto">
+          <a
+            href="https://ultimainformatica.com/pc-ultima-corsair-icue-ii.html rel="noopener""
+          >
+            <div>
+              <div class="discount"><p>-8%</p></div>
+              <div class="Sent"><p>Envío gratis</p></div>
+            </div>
+            <img
+              src="./assets/articulo8.jpeg"
+              alt="PC Última Corsair ICUE II | Intel Core i7 12700F / 16GB / 1TB / 480SSD M.2 / RTX 3060 12GB / Windows 10 Pro"
+            />
+            <p class="Nproducto">
+              PC Última Corsair ICUE II | Intel Core i7 12700F / 16GB / 1TB /
+              480SSD M.2 / RTX 3060 12GB / Windows 10 Pro
+            </p>
+            <p class="oldPrice">1.720,00€</p>
+            <p class="newPrice">1.582,40€</p>
+          </a>
+        </article>
+        <article class="producto">
+          <a
+            href="https://ultimainformatica.com/pc-gaming-ultima-lightning-super-white-i7-12700f-4070-sup.html rel="noopener""
+          >
+            <div>
+              <div class="discount"><p>-8%</p></div>
+              <div class="Sent"><p>Envío gratis</p></div>
+            </div>
+            <img
+              src="./assets/articulo9.webp"
+              alt="PC Gaming Última Lightning Super White| i7 12700F / RTX 4070 Super
+            / 1TB NVME / Windows 11 Pro"
+            />
+            <p class="Nproducto">
+              PC Gaming Última Lightning Super White| i7 12700F / RTX 4070 Super
+              / 1TB NVME / Windows 11 Pro
+            </p>
+            <p class="oldPrice">2.099,99€</p>
+            <p class="newPrice">1.931,99€</p>
+          </a>
+        </article>
+        <article class="producto">
+          <a
+            href="https://ultimainformatica.com/pc-ultima-gaming-4070-super.html rel="noopener""
+          >
+            <div>
+              <div class="discount"><p>-8%</p></div>
+              <div class="Sent"><p>Envío gratis</p></div>
+            </div>
+            <img
+              src="./assets/articulo10.webp"
+              alt="PC Gaming Última 4070 Super | Intel Core i5 13400F / RTX 4070 SUPER 12GB / 32GB DDR5 / SSD 1TB M.2 / Windows 11 Pro"
+            />
+            <p class="Nproducto">
+              PC Gaming Última 4070 Super | Intel Core i5 13400F / RTX 4070
+              SUPER 12GB / 32GB DDR5 / SSD 1TB M.2 / Windows 11 Pro
+            </p>
+            <p class="oldPrice">1.840,86€</p>
+            <p class="newPrice">1.693,59€</p>
+          </a>
+        </article>
+      </section> -->
+      <h2>Opiniones de Última Informática</h2>
+      <!-- <section id="Opiniones">
+        <article>
+          <img src="./assets/Opinion1.png" alt="Foto de Álvaro Cano" />
+          <span>⭐⭐⭐⭐⭐</span>
+          <h3>Álvaro Cano</h3>
+          <p>
+            Excelente experiencia, tanto por parte del recibimiento en tienda
+            como por parte del técnico. Especial mención a Miguel (Técnico), que
+            me dio una solución rapidísima y muy profesional, llamándome varias
+            veces para asegurar el mejor resultado. Ya tengo técnico de
+            informática de aquí en adelante. Un placer.
+          </p>
+        </article>
+        <article>
+          <img src="./assets/Opinion2.png" alt="Foto de Dennys Hernández" />
+          <span>⭐⭐⭐⭐⭐</span>
+          <h3>Dennys Hernández</h3>
+          <p>
+            Muy profesionales, no cabe duda que saben de lo que hablan, tienen
+            productos de primera calidad, incluso los más baratos tienen
+            excelente relación calidad precio. Y en general muy buenos precios.
+          </p>
+
+          <p>
+            Recomiendo estar atentos a su web suelen haber buenas ofertas y
+            descuentos en compras on line
+          </p>
+        </article>
+        <article>
+          <img src="./assets/Opinion3.png" alt="Foto de Esto es gamer" />
+          <span>⭐⭐⭐⭐⭐</span>
+          <h3>Esto es gamer</h3>
+          <p>
+            La mejor tienda de informática de toda canarias, los precios son
+            bastante competitivos salvo en pocos artículos (teniendo en cuenta
+            el gran catálogo que ofrece esta muy bien) el trato al cliente es
+            fabuloso, tanto online como en persona, compre con ellos mi nueva
+            torre y me asesoraron en todo de principio a fin, adaptándose a mis
+            exigencias. Es la mejor tienda de Tenerife tanto esta como la de
+            Costa Adeje, recomendado al 100%
+          </p>
+        </article>
+        <article>
+          <img src="./assets/Opinion4.png" alt="Foto de Robert M R" />
+          <span>⭐⭐⭐⭐⭐</span>
+          <h3>Robert M R</h3>
+          <p>
+            Una gestión bastante eficiente de los clientes y un trabajo en
+            equipo envidiable.
+          </p>
+          <p>Volvería a comprar aquí sin duda</p>
+        </article>
+      </section> -->
+      <footer>
+        <div id="links">
+          <div>
+            <h3>Compras</h3>
+            <ul>
+              <li>Pago Seguro</li>
+              <li>Descuento</li>
+              <li>Términos y condiciones</li>
+              <li>Aviso Legal</li>
+              <li>Envíos</li>
+              <li>Localizar envío</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Sobre Nosotros</h3>
+            <ul>
+              <li>Sobre nosotros</li>
+              <li>Nuestras Tiendas</li>
+              <li>Trabaja con nosotros</li>
+              <li>Contacto</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Otros</h3>
+            <ul>
+              <li>Bases de sorteo</li>
+              <li>Política de cookies</li>
+              <li>Política de privacidad</li>
+            </ul>
+          </div>
+          <div>
+            <h3>¡Síguenos!</h3>
+            <ul id="RRSS">
+              <li>
+                <img src="./assets/facebook.svg" alt="Logo Facebook" />
+                <p>Facebook</p>
+              </li>
+              <li>
+                <img src="./assets/twitter.svg" alt="Logo Twitter" />
+                <p>Twitter</p>
+              </li>
+              <li>
+                <img src="./assets/instagram.svg" alt="Logo Instagram" />
+                <p>Instagram</p>
+              </li>
+              <li>
+                <img src="./assets/youtube.svg" alt="Logo Youtube" />
+                <p>Youtube</p>
+              </li>
+              <li>
+                <img src="./assets/tiktok.svg" alt="Logo TikTok" />
+                <p>TikTok</p>
+              </li>
+              <li>
+                <img src="./assets/twitch.svg" alt="Logo Twitch" />
+                <p>Twitch</p>
+              </li>
+            </ul>
+          </div>
+
+          <div id="tiendas">
+            <h4>Visita nuestras tiendas</h4>
+            <div class="tienda">
+              <img src="./assets/tenerife.svg" alt="Tiendas Tenerife" />
+              <div>
+                <h3>Tenerife</h3>
+                <p>CC Nivaria - Santa Cruz</p>
+                <p>CC X-Sur - Costa Adeje</p>
+              </div>
+            </div>
+            <div class="tienda">
+              <img src="./assets/granCanaria.svg" alt="Tiendas Gran Canaria" />
+              <div>
+                <h3>Gran Canaria</h3>
+                <p>CC Las Arenas - Las Palmas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="./assets/colaboradores.png" alt="Colaboradores" />
+        <p>
+          Esta empresa ha recibido una subvención concedida para la consejería
+          de Economía, Industria, Comercio y Conocimiento con cargo al PILA
+          157G0042 cofinanciada en un 85% por el FEDER dentro del Programa
+          Operativo 2014-2020 y PILA207G0385 con destino a proyectos de
+          inversión de PYME en Canarias
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
