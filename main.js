@@ -3,8 +3,14 @@ const seccionesPagina = document.createElement("section");
 const Descuentos = document.createElement("section");
 const Opiniones = document.createElement("section");
 
-seccionBanner.setAttribute("id", "hero-desktop");
-seccionesPagina.setAttribute("id", "secciones-desktop");
+if (window.innerWidth >= 768) {
+  seccionBanner.setAttribute("id", "hero-desktop");
+  seccionesPagina.setAttribute("id", "secciones-desktop");
+} else {
+  seccionBanner.setAttribute("id", "hero-mobile");
+  seccionesPagina.setAttribute("id", "secciones-mobile");
+}
+
 seccionesPagina.setAttribute("class", "secciones");
 Descuentos.setAttribute("id", "descuentos");
 Opiniones.setAttribute("id", "Opiniones");
@@ -48,15 +54,15 @@ const sections = [
 ];
 
 for (let i = 0; i < sections.length; i++) {
-  const enlace = document.createElement("a");
-  const imagen = document.createElement("img");
-  enlace.setAttribute("href", sections[i].src);
-  enlace.setAttribute("rel", "noopener");
-  imagen.setAttribute("class", "seccion");
-  imagen.setAttribute("src", sections[i].image);
-  imagen.setAttribute("alt", sections[i].name);
-  enlace.appendChild(imagen);
-  seccionesPagina.appendChild(enlace);
+  const enlaceSeccion = document.createElement("a");
+  const imagenSeccion = document.createElement("img");
+  enlaceSeccion.setAttribute("href", sections[i].src);
+  enlaceSeccion.setAttribute("rel", "noopener");
+  imagenSeccion.setAttribute("class", "seccion");
+  imagenSeccion.setAttribute("src", sections[i].image);
+  imagenSeccion.setAttribute("alt", sections[i].name);
+  enlaceSeccion.appendChild(imagenSeccion);
+  seccionesPagina.appendChild(enlaceSeccion);
 }
 
 const products = [
@@ -161,6 +167,52 @@ const products = [
     shipping: "Envío gratis",
   },
 ];
+
+for (let i = 0; i < products.length; i++) {
+  const casilla = document.createElement("article");
+  const enlaceProducto = document.createElement("a");
+  const cajaProducto = document.createElement("div");
+  const cajaDescuento = document.createElement("div");
+  const cajaEnvio = document.createElement("div");
+  const textoDescuento = document.createElement("p");
+  const textoEnvio = document.createElement("p");
+  const imagenProducto = document.createElement("img");
+  const nombreProducto = document.createElement("p");
+  const vendedorProducto = document.createElement("p");
+  const precioAntiguo = document.createElement("p");
+  const precioNuevo = document.createElement("p");
+
+  textoDescuento.textContent = products[i].discount;
+  textoEnvio.textContent = products[i].shipping;
+  nombreProducto.textContent = products[i].name;
+  precioAntiguo.textContent = products[i].oldPrice;
+  precioNuevo.textContent = products[i].newPrice;
+  vendedorProducto.textContent = "Vendido por:" + products[i].seller;
+  casilla.setAttribute("class", "producto");
+  enlaceProducto.setAttribute("href", products[i].href);
+  enlaceProducto.setAttribute("rel", "noopener");
+  cajaDescuento.setAttribute("class", "discount");
+  cajaEnvio.setAttribute("class", "Sent");
+  imagenProducto.setAttribute("src", products[i].image);
+  imagenProducto.setAttribute("alt", products[i].name);
+  nombreProducto.setAttribute("class", "Nproducto");
+  vendedorProducto.setAttribute("class", "Nproducto");
+  precioAntiguo.setAttribute("class", "oldPrice");
+  precioNuevo.setAttribute("class", "newPrice");
+
+  cajaDescuento.appendChild(textoDescuento);
+  cajaEnvio.appendChild(textoEnvio);
+  cajaProducto.appendChild(cajaDescuento);
+  cajaProducto.appendChild(cajaEnvio);
+  enlaceProducto.appendChild(cajaProducto);
+  enlaceProducto.appendChild(imagenProducto);
+  enlaceProducto.appendChild(nombreProducto);
+  enlaceProducto.appendChild(precioAntiguo);
+  enlaceProducto.appendChild(precioNuevo);
+  enlaceProducto.appendChild(vendedorProducto);
+  casilla.appendChild(enlaceProducto);
+  Descuentos.appendChild(casilla);
+}
 
 const opinions = [];
 
