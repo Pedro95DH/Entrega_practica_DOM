@@ -1,13 +1,13 @@
-const seccionBanner = document.createElement("section");
+const seccionHero = document.createElement("section");
 const seccionesPagina = document.createElement("section");
 const Descuentos = document.createElement("section");
 const Opiniones = document.createElement("section");
 
 if (window.innerWidth >= 768) {
-  seccionBanner.setAttribute("id", "hero-desktop");
+  seccionHero.setAttribute("id", "hero-desktop");
   seccionesPagina.setAttribute("id", "secciones-desktop");
 } else {
-  seccionBanner.setAttribute("id", "hero-mobile");
+  seccionHero.setAttribute("id", "hero-mobile");
   seccionesPagina.setAttribute("id", "secciones-mobile");
 }
 
@@ -21,14 +21,37 @@ window.addEventListener(
   "resize",
   (Redimension = () => {
     if (window.innerWidth >= 768) {
-      seccionBanner.setAttribute("id", "hero-desktop");
+      seccionHero.setAttribute("id", "hero-desktop");
       seccionesPagina.setAttribute("id", "secciones-desktop");
     } else {
-      seccionBanner.setAttribute("id", "hero-mobile");
+      seccionHero.setAttribute("id", "hero-mobile");
       seccionesPagina.setAttribute("id", "secciones-mobile");
     }
   })
 );
+
+const heroElements = {
+  imagen1: "./assets/cholas.png",
+  imagen2: "./assets/promocion.png",
+  enlace: "https://ultimainformatica.com/en-cholas-y-a-jugar",
+};
+
+const cajaHero = document.createElement("div");
+const imagenHero = document.createElement("div");
+const enlaceHero = document.createElement("a");
+
+if (window.innerWidth >= 768) {
+  const enlaceSeccion = document.createElement("a");
+  const imagenSeccion = document.createElement("img");
+  enlaceSeccion.setAttribute("href", sections[i].src);
+  enlaceSeccion.setAttribute("rel", "noopener");
+  imagenSeccion.setAttribute("class", "seccion");
+  imagenSeccion.setAttribute("src", sections[i].image);
+  imagenSeccion.setAttribute("alt", sections[i].name);
+  enlaceSeccion.appendChild(imagenSeccion);
+  seccionesPagina.appendChild(enlaceSeccion);
+} else {
+}
 
 const sections = [
   {
@@ -169,7 +192,7 @@ const products = [
 ];
 
 for (let i = 0; i < products.length; i++) {
-  const casilla = document.createElement("article");
+  const casillaProducto = document.createElement("article");
   const enlaceProducto = document.createElement("a");
   const cajaProducto = document.createElement("div");
   const cajaDescuento = document.createElement("div");
@@ -187,8 +210,8 @@ for (let i = 0; i < products.length; i++) {
   nombreProducto.textContent = products[i].name;
   precioAntiguo.textContent = products[i].oldPrice;
   precioNuevo.textContent = products[i].newPrice;
-  vendedorProducto.textContent = "Vendido por:" + products[i].seller;
-  casilla.setAttribute("class", "producto");
+  vendedorProducto.textContent = "Vendido por: " + products[i].seller;
+  casillaProducto.setAttribute("class", "producto");
   enlaceProducto.setAttribute("href", products[i].href);
   enlaceProducto.setAttribute("rel", "noopener");
   cajaDescuento.setAttribute("class", "discount");
@@ -210,14 +233,73 @@ for (let i = 0; i < products.length; i++) {
   enlaceProducto.appendChild(precioAntiguo);
   enlaceProducto.appendChild(precioNuevo);
   enlaceProducto.appendChild(vendedorProducto);
-  casilla.appendChild(enlaceProducto);
-  Descuentos.appendChild(casilla);
+  casillaProducto.appendChild(enlaceProducto);
+  Descuentos.appendChild(casillaProducto);
 }
 
-const opinions = [];
+const opinions = [
+  {
+    nombre: "Álvaro Cano",
+    nombreFoto: "Foto de Álvaro Cano",
+    foto: "./assets/Opinion1.png",
+    calificacion: 5,
+    comentario:
+      "Excelente experiencia, tanto por parte del recibimiento en tienda como por parte del técnico. Especial mención a Miguel (Técnico), que me dio una solución rapidísima y muy profesional, llamándome varias veces para asegurar el mejor resultado. Ya tengo técnico de informática de aquí en adelante. Un placer.",
+  },
+  {
+    nombre: "Dennys Hernández",
+    nombreFoto: "Foto de Dennys Hernández",
+    foto: "./assets/Opinion2.png",
+    calificacion: 5,
+    comentario:
+      "Muy profesionales, no cabe duda que saben de lo que hablan, tienen productos de primera calidad, incluso los más baratos tienen excelente relación calidad precio. Y en general muy buenos precios. Recomiendo estar atentos a su web suelen haber buenas ofertas y descuentos en compras on line.",
+  },
+  {
+    nombre: "Esto es gamer",
+    nombreFoto: "Foto de Esto es gamer",
+    foto: "./assets/Opinion3.png",
+    calificacion: 5,
+    comentario:
+      "La mejor tienda de informática de toda canarias, los precios son bastante competitivos salvo en pocos artículos (teniendo en cuenta el gran catálogo que ofrece esta muy bien) el trato al cliente es fabuloso, tanto online como en persona, compre con ellos mi nueva torre y me asesoraron en todo de principio a fin, adaptándose a mis exigencias. Es la mejor tienda de Tenerife tanto esta como la de Costa Adeje, recomendado al 100%.",
+  },
+  {
+    nombre: "Robert M R",
+    nombreFoto: "Foto de Robert M R",
+    foto: "./assets/Opinion4.png",
+    calificacion: 3,
+    comentario:
+      "Una gestión bastante eficiente de los clientes y un trabajo en equipo envidiable. Volvería a comprar aquí sin duda",
+  },
+];
 
-//   <!-- Queria hacer el banner superior al nac pero no consigo que cuando scrolleé desaparezca y solo quede el nav -->
-//   <!-- <p id="bannerHead">
+for (let i = 0; i < opinions.length; i++) {
+  const estrellasRating = "⭐";
+  const casillaOpinion = document.createElement("article");
+  const imagenOpinion = document.createElement("img");
+  const ratingOpinion = document.createElement("span");
+  const nombreOpinion = document.createElement("h3");
+  const textoOpinion = document.createElement("p");
+  imagenOpinion.setAttribute("src", opinions[i].foto);
+  imagenOpinion.setAttribute("Alt", opinions[i].nombreFoto);
+  nombreOpinion.textContent = opinions[i].nombre;
+  textoOpinion.textContent = opinions[i].comentario;
+  const rating = () => {
+    let stars = "";
+    for (let j = 0; j < opinions[i].calificacion; j++) {
+      stars = stars + estrellasRating;
+    }
+    return stars;
+  };
+  ratingOpinion.textContent = rating();
+  casillaOpinion.appendChild(imagenOpinion);
+  casillaOpinion.appendChild(ratingOpinion);
+  casillaOpinion.appendChild(nombreOpinion);
+  casillaOpinion.appendChild(textoOpinion);
+  Opiniones.appendChild(casillaOpinion);
+}
+
+//   <!-- Queria hacer el Hero superior al nac pero no consigo que cuando scrolleé desaparezca y solo quede el nav -->
+//   <!-- <p id="HeroHead">
 //     🖐 Hola, estás viendo los precios para <b>Canarias</b>. Si quieres
 //     ver los precios de <b>Península</b>,
 //     <a href="https://ultimainformatica.com/iniciar-sesion?create_account=1"
@@ -229,7 +311,14 @@ const opinions = [];
 //     >
 //   </p> -->
 
-documento.appendChild(seccionBanner);
-documento.appendChild(seccionesPagina);
-documento.appendChild(Descuentos);
-documento.appendChild(Opiniones);
+documento.insertAdjacentElement("afterbegin", seccionHero);
+documento.insertAdjacentElement("afterbegin", seccionesPagina);
+const seccionDescuentos = document.querySelector("#title1");
+const seccionOpiniones = document.querySelector("#title2");
+seccionDescuentos.insertAdjacentElement("afterend", Descuentos);
+seccionOpiniones.insertAdjacentElement("afterend", Opiniones);
+documento.insertAdjacentElement("afterbegin", seccionesPagina);
+// documento.appendChild(seccionHero);
+// documento.appendChild(seccionesPagina);
+// documento.appendChild(Descuentos);
+// documento.appendChild(Opiniones);
