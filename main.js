@@ -1,7 +1,12 @@
+//Declaro constantes para crear las diferentes secciones de la página y recuperar las del html con las que vamos a trabajar.
+
 const seccionHero = document.createElement("section");
 const seccionesPagina = document.createElement("section");
 const Descuentos = document.createElement("section");
 const Opiniones = document.createElement("section");
+const documento = document.querySelector("main");
+
+//Establezco id´s por defecto dependiendo de como cargue la página la primera vez.
 
 if (window.innerWidth >= 768) {
   seccionHero.setAttribute("id", "hero-desktop");
@@ -15,7 +20,9 @@ seccionesPagina.setAttribute("class", "secciones");
 Descuentos.setAttribute("id", "descuentos");
 Opiniones.setAttribute("id", "Opiniones");
 
-const documento = document.querySelector("main");
+
+
+//Se añade un eventlistener para que cambie los id dependiendo del tamaño de la página.
 
 window.addEventListener(
   "resize",
@@ -30,6 +37,8 @@ window.addEventListener(
   })
 );
 
+//El hero de la página y la organización dinámica de lo que lo compone dependiendo del estilo de la página (móvil o escritorio).
+
 const heroElements = {
   imagen1: "./assets/cholas.png",
   imagen2: "./assets/promocion.png",
@@ -37,21 +46,32 @@ const heroElements = {
 };
 
 const cajaHero = document.createElement("div");
-const imagenHero = document.createElement("div");
+const imagenHeroCholas = document.createElement("img");
 const enlaceHero = document.createElement("a");
+const imagenHeroPromo = document.createElement("img");
+
+imagenHeroCholas.setAttribute("id","cholas");
+imagenHeroCholas.setAttribute("src",heroElements.imagen1);
+imagenHeroCholas.setAttribute("alt","en cholas y a jugar");
+enlaceHero.setAttribute("href",heroElements.enlace);
+enlaceHero.setAttribute("rel", "noopener");
+enlaceHero.textContent = "Ver Ofertas";
+imagenHeroPromo.setAttribute("id","promocion");
+imagenHeroPromo.setAttribute("src",heroElements.imagen2);
+imagenHeroPromo.setAttribute("alt","ofertas de verano");
+cajaHero.appendChild(imagenHeroCholas);
+cajaHero.appendChild(enlaceHero);
+
 
 if (window.innerWidth >= 768) {
-  const enlaceSeccion = document.createElement("a");
-  const imagenSeccion = document.createElement("img");
-  enlaceSeccion.setAttribute("href", sections[i].src);
-  enlaceSeccion.setAttribute("rel", "noopener");
-  imagenSeccion.setAttribute("class", "seccion");
-  imagenSeccion.setAttribute("src", sections[i].image);
-  imagenSeccion.setAttribute("alt", sections[i].name);
-  enlaceSeccion.appendChild(imagenSeccion);
-  seccionesPagina.appendChild(enlaceSeccion);
+seccionHero.appendChild(cajaHero);
+seccionHero.appendChild(imagenHeroPromo);
 } else {
+  seccionHero.appendChild(imagenHeroPromo);
+  seccionHero.appendChild(cajaHero);
 }
+
+//Las secciones de la página.
 
 const sections = [
   {
@@ -87,6 +107,8 @@ for (let i = 0; i < sections.length; i++) {
   enlaceSeccion.appendChild(imagenSeccion);
   seccionesPagina.appendChild(enlaceSeccion);
 }
+
+//Los productos de la página.
 
 const products = [
   {
@@ -237,6 +259,8 @@ for (let i = 0; i < products.length; i++) {
   Descuentos.appendChild(casillaProducto);
 }
 
+//Las opiniones de la página.
+
 const opinions = [
   {
     nombre: "Álvaro Cano",
@@ -283,6 +307,9 @@ for (let i = 0; i < opinions.length; i++) {
   imagenOpinion.setAttribute("Alt", opinions[i].nombreFoto);
   nombreOpinion.textContent = opinions[i].nombre;
   textoOpinion.textContent = opinions[i].comentario;
+
+//Aquí creo una función para añadir la puntuación de la opinion dinamicamente en función de la que tenga en el array de objetos.
+
   const rating = () => {
     let stars = "";
     for (let j = 0; j < opinions[i].calificacion; j++) {
@@ -298,7 +325,7 @@ for (let i = 0; i < opinions.length; i++) {
   Opiniones.appendChild(casillaOpinion);
 }
 
-//   <!-- Queria hacer el Hero superior al nac pero no consigo que cuando scrolleé desaparezca y solo quede el nav -->
+//   <!-- Queria hacer el Hero superior al nav pero no consigo que cuando scrolleé desaparezca y solo quede el nav -->
 //   <!-- <p id="HeroHead">
 //     🖐 Hola, estás viendo los precios para <b>Canarias</b>. Si quieres
 //     ver los precios de <b>Península</b>,
@@ -311,14 +338,13 @@ for (let i = 0; i < opinions.length; i++) {
 //     >
 //   </p> -->
 
+//Ubico las diferentes partes de la página donde deberian ir.
+
+documento.insertAdjacentElement("afterbegin", seccionesPagina);
 documento.insertAdjacentElement("afterbegin", seccionHero);
-documento.insertAdjacentElement("afterbegin", seccionesPagina);
-const seccionDescuentos = document.querySelector("#title1");
-const seccionOpiniones = document.querySelector("#title2");
-seccionDescuentos.insertAdjacentElement("afterend", Descuentos);
-seccionOpiniones.insertAdjacentElement("afterend", Opiniones);
-documento.insertAdjacentElement("afterbegin", seccionesPagina);
-// documento.appendChild(seccionHero);
-// documento.appendChild(seccionesPagina);
-// documento.appendChild(Descuentos);
-// documento.appendChild(Opiniones);
+const tituloDescuentos = document.querySelector("#title1");
+const tituloOpiniones = document.querySelector("#title2");
+tituloDescuentos.insertAdjacentElement("afterend", Descuentos);
+tituloOpiniones.insertAdjacentElement("afterend", Opiniones);
+
+
