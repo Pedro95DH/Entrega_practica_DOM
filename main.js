@@ -6,6 +6,20 @@ const Descuentos = document.createElement("section");
 const Opiniones = document.createElement("section");
 const documento = document.querySelector("main");
 
+//creo el menú hamburguesa para el desplegable.
+const menuButton = document.querySelector("#menuButton");
+
+const generalList = document.createElement("ol");
+
+
+menuButton.insertAdjacentElement("beforeend", generalList);
+
+menuButton.addEventListener("click", (Abrir = () =>
+{
+  generalList.textContent = "oiwenfcewoifcnewoifnewiofnewoifneoifew";
+
+}))
+
 //Establezco id´s por defecto dependiendo de como cargue la página la primera vez.
 
 if (window.innerWidth >= 768) {
