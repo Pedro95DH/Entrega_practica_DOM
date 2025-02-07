@@ -9,16 +9,63 @@ const documento = document.querySelector("main");
 //creo el menú hamburguesa para el desplegable.
 const menuButton = document.querySelector("#menuButton");
 
-const generalList = document.createElement("ol");
+const generalMenu = document.createElement("ol");
 
 
-menuButton.insertAdjacentElement("beforeend", generalList);
+const menuSections = [
+  {
+    name: "Componentes",
+    img: "./assets/componentes.png",
+  },
+  {
+    name: "Ordenadores",
+    img: "./assets/ordenadores.png",
+  },
+  {
+    name: "Periféricos",
+    img: "./assets/perifericos.png",
+  },
+  {
+    name: "Monitores",
+    img: "./assets/monitores.png",
+  },
+  {
+    name: "Smartphones, Tablets",
+    img: "./assets/smartphones.png",
+  },
+  {
+    name: "Redes",
+    img: "./assets/redes.png",
+  },
+  {
+    name: "Imagen y sonido",
+    img: "./assets/imagenysonido.png",
+  },
+  {
+    name: "Videojuegos y robótica",
+    img: "./assets/videojuegos.png",
+  },
+];
 
-menuButton.addEventListener("click", (Abrir = () =>
-{
-  generalList.textContent = "oiwenfcewoifcnewoifnewiofnewoifneoifew";
+for (let i = 0; i < menuSections.length; i++) {
+  const menuElement = document.createElement("li");
+  const imageElement = document.createElement("img");
+  const LinkElement = document.createElement("a");
+  imageElement.setAttribute("src", menuSections[i].img);
+  LinkElement.appendChild(imageElement);
+  LinkElement.textContent = menuSections[i].name;
+  menuElement.appendChild(LinkElement);
+  generalMenu.appendChild(menuElement);
+}
 
-}))
+menuButton.insertAdjacentElement("beforeend", generalMenu);
+
+menuButton.addEventListener(
+  "click",
+  (Abrir = () => {
+    generalMenu.toggle("hamMenu");
+  })
+);
 
 //Establezco id´s por defecto dependiendo de como cargue la página la primera vez.
 
@@ -33,8 +80,6 @@ if (window.innerWidth >= 768) {
 seccionesPagina.setAttribute("class", "secciones");
 Descuentos.setAttribute("id", "descuentos");
 Opiniones.setAttribute("id", "Opiniones");
-
-
 
 //Se añade un eventlistener para que cambie los id dependiendo del tamaño de la página.
 
@@ -64,22 +109,21 @@ const imagenHeroCholas = document.createElement("img");
 const enlaceHero = document.createElement("a");
 const imagenHeroPromo = document.createElement("img");
 
-imagenHeroCholas.setAttribute("id","cholas");
-imagenHeroCholas.setAttribute("src",heroElements.imagen1);
-imagenHeroCholas.setAttribute("alt","en cholas y a jugar");
-enlaceHero.setAttribute("href",heroElements.enlace);
+imagenHeroCholas.setAttribute("id", "cholas");
+imagenHeroCholas.setAttribute("src", heroElements.imagen1);
+imagenHeroCholas.setAttribute("alt", "en cholas y a jugar");
+enlaceHero.setAttribute("href", heroElements.enlace);
 enlaceHero.setAttribute("rel", "noopener");
 enlaceHero.textContent = "Ver Ofertas";
-imagenHeroPromo.setAttribute("id","promocion");
-imagenHeroPromo.setAttribute("src",heroElements.imagen2);
-imagenHeroPromo.setAttribute("alt","ofertas de verano");
+imagenHeroPromo.setAttribute("id", "promocion");
+imagenHeroPromo.setAttribute("src", heroElements.imagen2);
+imagenHeroPromo.setAttribute("alt", "ofertas de verano");
 cajaHero.appendChild(imagenHeroCholas);
 cajaHero.appendChild(enlaceHero);
 
-
 if (window.innerWidth >= 768) {
-seccionHero.appendChild(cajaHero);
-seccionHero.appendChild(imagenHeroPromo);
+  seccionHero.appendChild(cajaHero);
+  seccionHero.appendChild(imagenHeroPromo);
 } else {
   seccionHero.appendChild(imagenHeroPromo);
   seccionHero.appendChild(cajaHero);
@@ -322,7 +366,7 @@ for (let i = 0; i < opinions.length; i++) {
   nombreOpinion.textContent = opinions[i].nombre;
   textoOpinion.textContent = opinions[i].comentario;
 
-//Aquí creo una función para añadir la puntuación de la opinion dinamicamente en función de la que tenga en el array de objetos.
+  //Aquí creo una función para añadir la puntuación de la opinion dinamicamente en función de la que tenga en el array de objetos.
 
   const rating = () => {
     let stars = "";
@@ -360,5 +404,3 @@ const tituloDescuentos = document.querySelector("#title1");
 const tituloOpiniones = document.querySelector("#title2");
 tituloDescuentos.insertAdjacentElement("afterend", Descuentos);
 tituloOpiniones.insertAdjacentElement("afterend", Opiniones);
-
-
