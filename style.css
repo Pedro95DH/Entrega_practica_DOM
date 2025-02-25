@@ -68,6 +68,18 @@ nav > button {
   border: none;
 }
 
+.hamDisable{
+  display: none;
+}
+
+.hamEnable{
+  position: absolute;
+  left: 0;
+  top: 60%;
+  background-color: red;
+  z-index: 10;
+}
+
 nav > button :hover {
   background-color: var(--hover-color);
 }

@@ -58,13 +58,15 @@ for (let i = 0; i < menuSections.length; i++) {
   generalMenu.appendChild(menuElement);
 }
 
-menuButton.insertAdjacentElement("beforeend", generalMenu);
+menuButton.insertAdjacentElement("afterend", generalMenu);
+const listButton = document.querySelector ("#menuButton + ol");
+listButton.classList.add("hamDisable");
 
 menuButton.addEventListener(
-  "click",
-  (Abrir = () => {
-    generalMenu.toggle("hamMenu");
-  })
+  "click", () => {
+    listButton.classList.toggle("hamDisable");
+    listButton.classList.toggle("hamEnable");
+  }
 );
 
 //Establezco id´s por defecto dependiendo de como cargue la página la primera vez.
