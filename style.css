@@ -55,6 +55,13 @@ nav {
   padding: 0 20px;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  z-index: 30;
+}
+
 header a {
   display: flex;
   flex-direction: column;
@@ -68,16 +75,22 @@ nav > button {
   border: none;
 }
 
-.hamDisable{
+.hamDisable {
   display: none;
 }
 
-.hamEnable{
-  position: absolute;
+.hamEnable {
+  position: sticky;
+  overflow: hidden;
+  z-index: 30;
   left: 0;
-  top: 60%;
-  background-color: red;
-  z-index: 10;
+  top: 125px;
+  width: 270px;
+  background-color: var(--primary-color);
+}
+
+.hamEnable a{
+color: var(--secondary-color);
 }
 
 nav > button :hover {
@@ -453,7 +466,7 @@ a span {
     }
   }
 }
- /* Descuentos y ofertas */
+/* Descuentos y ofertas */
 
 h2 {
   text-align: center;
@@ -647,7 +660,7 @@ footer li img {
   gap: 15px;
 }
 
-.tienda{
+.tienda {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -659,10 +672,9 @@ footer li img {
   font-size: 13px;
 }
 
-.tienda img{
+.tienda img {
   width: 60px;
 }
-
 
 footer > p {
   font-size: 10px;
@@ -675,7 +687,6 @@ footer > p {
 /* Footer versión tablet */
 
 @media screen and (max-width: 768px) {
-
   #tiendas {
     max-width: 300px;
   }
@@ -687,7 +698,7 @@ footer > p {
     width: 90%;
   }
 
-  footer > img{
+  footer > img {
     width: 100%;
   }
 }
@@ -695,8 +706,6 @@ footer > p {
 /* Footer versión móvil */
 
 @media screen and (max-width: 375px) {
-
-
   #links > div {
     align-items: center;
   }
@@ -705,8 +714,8 @@ footer > p {
     align-items: center;
   }
 
-  #RRSS li p{
-    display:none;
+  #RRSS li p {
+    display: none;
   }
 
   #RRSS {

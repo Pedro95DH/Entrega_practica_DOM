@@ -7,8 +7,8 @@ const Opiniones = document.createElement("section");
 const documento = document.querySelector("main");
 
 //creo el menú hamburguesa para el desplegable.
-const menuButton = document.querySelector("#menuButton");
-
+const header = document.querySelector("header");
+const menuButton = document.querySelector("#menuButton")
 const generalMenu = document.createElement("ol");
 
 
@@ -16,34 +16,42 @@ const menuSections = [
   {
     name: "Componentes",
     img: "./assets/componentes.png",
+    link: "https://ultimainformatica.com/componentes",
   },
   {
     name: "Ordenadores",
     img: "./assets/ordenadores.png",
+    link: "https://ultimainformatica.com/ordenadores",
   },
   {
     name: "Periféricos",
     img: "./assets/perifericos.png",
+    link: "https://ultimainformatica.com/perifericos",
   },
   {
     name: "Monitores",
     img: "./assets/monitores.png",
+    link: "https://ultimainformatica.com/monitores",
   },
   {
     name: "Smartphones, Tablets",
     img: "./assets/smartphones.png",
+    link: "https://ultimainformatica.com/tablet-smartphone-y-smartwatch/",
   },
   {
     name: "Redes",
     img: "./assets/redes.png",
+    link: "https://ultimainformatica.com/redes/",
   },
   {
     name: "Imagen y sonido",
     img: "./assets/imagenysonido.png",
+    link: "https://ultimainformatica.com/imagen-y-sonido/",
   },
   {
     name: "Videojuegos y robótica",
     img: "./assets/videojuegos.png",
+    link: "https://ultimainformatica.com/videojuegos-y-robotica/",
   },
 ];
 
@@ -52,14 +60,15 @@ for (let i = 0; i < menuSections.length; i++) {
   const imageElement = document.createElement("img");
   const LinkElement = document.createElement("a");
   imageElement.setAttribute("src", menuSections[i].img);
-  LinkElement.appendChild(imageElement);
+  imageElement.setAttribute("src", menuSections[i].img);
+  menuElement.appendChild(imageElement);
   LinkElement.textContent = menuSections[i].name;
   menuElement.appendChild(LinkElement);
   generalMenu.appendChild(menuElement);
 }
 
-menuButton.insertAdjacentElement("afterend", generalMenu);
-const listButton = document.querySelector ("#menuButton + ol");
+header.insertAdjacentElement("afterend", generalMenu);
+const listButton = document.querySelector ("header + ol");
 listButton.classList.add("hamDisable");
 
 menuButton.addEventListener(
