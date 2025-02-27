@@ -8,9 +8,8 @@ const documento = document.querySelector("main");
 
 //creo el menú hamburguesa para el desplegable.
 const header = document.querySelector("header");
-const menuButton = document.querySelector("#menuButton")
+const menuButton = document.querySelector("#menuButton");
 const generalMenu = document.createElement("ol");
-
 
 const menuSections = [
   {
@@ -59,24 +58,24 @@ for (let i = 0; i < menuSections.length; i++) {
   const menuElement = document.createElement("li");
   const imageElement = document.createElement("img");
   const LinkElement = document.createElement("a");
+  const textElement = document.createElement("span");
   imageElement.setAttribute("src", menuSections[i].img);
-  imageElement.setAttribute("src", menuSections[i].img);
-  menuElement.appendChild(imageElement);
-  LinkElement.textContent = menuSections[i].name;
+  LinkElement.setAttribute("href", menuSections[i].link);
+  textElement.textContent = menuSections[i].name;
+  LinkElement.appendChild(imageElement);
+  LinkElement.appendChild(textElement);
   menuElement.appendChild(LinkElement);
   generalMenu.appendChild(menuElement);
 }
 
 header.insertAdjacentElement("afterend", generalMenu);
-const listButton = document.querySelector ("header + ol");
+const listButton = document.querySelector("header + ol");
 listButton.classList.add("hamDisable");
 
-menuButton.addEventListener(
-  "click", () => {
-    listButton.classList.toggle("hamDisable");
-    listButton.classList.toggle("hamEnable");
-  }
-);
+menuButton.addEventListener("click", () => {
+  listButton.classList.toggle("hamDisable");
+  listButton.classList.toggle("hamEnable");
+});
 
 //Establezco id´s por defecto dependiendo de como cargue la página la primera vez.
 
