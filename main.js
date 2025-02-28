@@ -75,12 +75,20 @@ listButton.classList.add("hamDisable");
 /* Creo un evento que cuando apriete el botón del menú se despliegue pero con un if por si la página esta en versión móvil o en escritorio*/
 
 menuButton.addEventListener("click", () => {
-  listButton.classList.toggle("hamDisable");
-
-  if (window.innerWidth >= 768) {
-    listButton.classList.toggle("hamEnable");
+  if (
+    listButton.classList.contains("hamEnable") ||
+    listButton.classList.contains("hamEnableMobile")
+  ) {
+    listButton.classList.remove("hamEnable");
+    listButton.classList.remove("hamEnableMobile");
+    listButton.classList.toggle("hamDisable");
   } else {
-    listButton.classList.toggle("hamEnableMobile");
+    listButton.classList.remove("hamDisable");
+    if (window.innerWidth >= 768) {
+      listButton.classList.toggle("hamEnable");
+    } else {
+      listButton.classList.toggle("hamEnableMobile");
+    }
   }
 });
 
@@ -100,19 +108,33 @@ Opiniones.setAttribute("id", "Opiniones");
 
 //Se añade un eventlistener para que cambie los id dependiendo del tamaño de la página.
 
-window.addEventListener(
-  "resize",
-  (Redimension = () => {
-    if (window.innerWidth >= 768) {
-      seccionHero.setAttribute("id", "hero-desktop");
-      seccionesPagina.setAttribute("id", "secciones-desktop");
-    } else {
-      seccionHero.setAttribute("id", "hero-mobile");
-      seccionesPagina.setAttribute("id", "secciones-mobile");
-    }
-  })
-);
+window.addEventListener("resize", () => {
+  if (window.innerWidth >= 768) {
+    seccionHero.setAttribute("id", "hero-desktop");
+    seccionesPagina.setAttribute("id", "secciones-desktop");
+  } else {
+    seccionHero.setAttribute("id", "hero-mobile");
+    seccionesPagina.setAttribute("id", "secciones-mobile");
+  }
+});
 
+window.addEventListener("resize", () => {
+  if (
+    window.innerWidth >= 768 &&
+    (listButton.classList.contains("hamEnable") ||
+      listButton.classList.contains("hamEnableMobile"))
+  ) {
+    listButton.classList.remove("hamEnableMobile");
+    listButton.classList.add("hamEnable");
+  } else if (
+    window.innerWidth <= 768 &&
+    (listButton.classList.contains("hamEnable") ||
+      listButton.classList.contains("hamEnableMobile"))
+  ) {
+    listButton.classList.remove("hamEnable");
+    listButton.classList.add("hamEnableMobile");
+  }
+});
 //El hero de la página y la organización dinámica de lo que lo compone dependiendo del estilo de la página (móvil o escritorio).
 
 const heroElements = {

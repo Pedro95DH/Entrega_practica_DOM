@@ -81,6 +81,47 @@ nav > button {
   display: none;
 }
 
+.hamEnable {
+  font-weight: bold;
+  list-style: none;
+  position: fixed;
+  overflow: hidden;
+  z-index: 30;
+  left: 0;
+  top: 126px;
+  width: 250px;
+  height: 100vh;
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 30px;
+}
+
+.hamEnable li {
+  width: 100%;
+  height: 50px;
+}
+
+.hamEnable a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10%;
+  height: 100%;
+}
+
+.hamEnable span {
+  width: 100%;
+  text-align: left;
+  color: var(--secondary-color);
+  font-size: 16px;
+}
+
+/* Menú desplegablede la página versión Móvil */
+
 .hamEnableMobile {
   font-weight: bold;
   list-style: none;
@@ -119,7 +160,6 @@ nav > button {
   color: var(--secondary-color);
   font-size: 16px;
 }
-
 
 nav > button :hover {
   background-color: var(--hover-color);
