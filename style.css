@@ -582,6 +582,10 @@ h2 {
   width: 100%;
 }
 
+.producto:hover{
+  border: 2px solid var(--offer-color);
+}
+
 .oldPrice {
   color: lightgray;
   text-decoration: line-through;
