@@ -72,9 +72,16 @@ header.insertAdjacentElement("afterend", generalMenu);
 const listButton = document.querySelector("header + ol");
 listButton.classList.add("hamDisable");
 
+/* Creo un evento que cuando apriete el botón del menú se despliegue pero con un if por si la página esta en versión móvil o en escritorio*/
+
 menuButton.addEventListener("click", () => {
   listButton.classList.toggle("hamDisable");
-  listButton.classList.toggle("hamEnable");
+
+  if (window.innerWidth >= 768) {
+    listButton.classList.toggle("hamEnable");
+  } else {
+    listButton.classList.toggle("hamEnableMobile");
+  }
 });
 
 //Establezco id´s por defecto dependiendo de como cargue la página la primera vez.
